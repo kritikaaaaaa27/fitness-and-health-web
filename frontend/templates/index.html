@@ -1,0 +1,305 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Health &amp; Fitness Platform
+    </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <style>
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 1s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hover-grow:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="font-roboto bg-gray-100">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center p-5">
+            <a class="text-3xl font-bold text-green-500" href="#">
+                Health &amp; Fitness
+            </a>
+            <div class="md:hidden">
+                <button class="text-gray-700 focus:outline-none" id="menu-button">
+                    <i class="fas fa-bars">
+                    </i>
+                </button>
+            </div>
+            <nav class="hidden md:flex space-x-4" id="menu">
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Home
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Features
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    About
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Contact
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Login
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Register
+                </a>
+            </nav>
+        </div>
+        <div class="md:hidden" id="mobile-menu" style="display: none;">
+            <nav class="flex flex-col space-y-2 p-4 mx-4 my-2 bg-white rounded-lg shadow-lg">
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Home
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Features
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    About
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Contact
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Login
+                </a>
+                <a class="text-gray-700 hover:text-green-500" href="#">
+                    Register
+                </a>
+            </nav>
+        </div>
+    </header>
+    <section class="bg-green-500 text-white text-center py-20 fade-in">
+        <div class="container mx-auto">
+            <h1 class="text-5xl font-bold mb-4">
+                Welcome to Health &amp; Fitness
+            </h1>
+            <p class="text-xl mb-8">
+                Track your fitness goals, learn about health and fitness, interact in forums, and access personalized
+                workout plans.
+            </p>
+            <a class="bg-white text-green-500 px-6 py-3 rounded-full font-bold text-lg hover:bg-gray-200 transition duration-300"
+                href="#">
+                Get Started
+            </a>
+        </div>
+    </section>
+    <section class="container mx-auto py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold slide-up">
+                Features
+            </h2>
+            <p class="text-gray-700 slide-up">
+                Explore the amazing features we offer to help you achieve your fitness goals.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
+                <img alt="Icon representing goal tracking" class="mx-auto mb-4" height="100"
+                    src="https://storage.googleapis.com/a1aa/image/TQQUWvZaFVZa0KKPq-jcxik-FudPEHCC85t6IrGeHf8.jpg"
+                    width="100" />
+                <h3 class="text-2xl font-bold mb-2">
+                    Goal Tracker
+                </h3>
+                <p class="text-gray-700">
+                    Track your health and fitness goals such as weight loss or muscle gain.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
+                <img alt="Icon representing educational videos" class="mx-auto mb-4" height="100"
+                    src="https://storage.googleapis.com/a1aa/image/V8_V_SX0ukmpgnqdRBGlAi_GgrpBF58CuAn3UYuj_i0.jpg"
+                    width="100" />
+                <h3 class="text-2xl font-bold mb-2">
+                    Educational Videos
+                </h3>
+                <p class="text-gray-700">
+                    Learn about health and fitness through our curated video content.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
+                <img alt="Icon representing forums" class="mx-auto mb-4" height="100"
+                    src="https://storage.googleapis.com/a1aa/image/f8uTFzzTy_QrDRluSKeL01SI7BnrUZs4fB88awf6jwg.jpg"
+                    width="100" />
+                <h3 class="text-2xl font-bold mb-2">
+                    Forums
+                </h3>
+                <p class="text-gray-700">
+                    Interact with the community, ask questions, and share your fitness journey.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center hover-grow">
+                <img alt="Icon representing personalized workout plans" class="mx-auto mb-4" height="100"
+                    src="https://storage.googleapis.com/a1aa/image/7DeyBOSeHV1lHBVnlgPqf7Y5PfstJys6AcvK4qAYGwk.jpg"
+                    width="100" />
+                <h3 class="text-2xl font-bold mb-2">
+                    Workout Plans
+                </h3>
+                <p class="text-gray-700">
+                    Access personalized workout plans tailored to your fitness goals.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray-200 py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 slide-up">
+                Educational Videos
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Thumbnail of an educational video about fitness" class="mb-4" height="200"
+                        src="https://storage.googleapis.com/a1aa/image/RpPsz45pdPngC3BAwn9d7eqPKmiqviRJhTx62S7KMD0.jpg"
+                        width="300" />
+                    <h3 class="text-2xl font-bold mb-2">
+                        Fitness Basics
+                    </h3>
+                    <p class="text-gray-700">
+                        Learn the basics of fitness and how to get started on your journey.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Thumbnail of an educational video about nutrition" class="mb-4" height="200"
+                        src="https://storage.googleapis.com/a1aa/image/gtVxHosSeZhlKX9ZPkXu4XFwvTeUq81xOfHuIS4_0aY.jpg"
+                        width="300" />
+                    <h3 class="text-2xl font-bold mb-2">
+                        Nutrition Tips
+                    </h3>
+                    <p class="text-gray-700">
+                        Discover essential nutrition tips to complement your fitness routine.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Thumbnail of an educational video about advanced workouts" class="mb-4" height="200"
+                        src="https://storage.googleapis.com/a1aa/image/DBGYEKppjueSg6ao8IUJuBRQzD88XL_m31jIlRnzsQY.jpg"
+                        width="300" />
+                    <h3 class="text-2xl font-bold mb-2">
+                        Advanced Workouts
+                    </h3>
+                    <p class="text-gray-700">
+                        Take your workouts to the next level with advanced techniques.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container mx-auto py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold slide-up">
+                Join Our Community
+            </h2>
+            <p class="text-gray-700 slide-up">
+                Become a part of our vibrant community and share your fitness journey.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-grow">
+                <img alt="Profile picture of a community member" class="mb-4 rounded-full w-24 h-24 mx-auto"
+                    height="200"
+                    src="https://storage.googleapis.com/a1aa/image/U64TGgF0unSVDIcZ6whBgd67VX2QKSxqfb2_g-gvTvc.jpg"
+                    width="300" />
+                <h3 class="text-2xl font-bold mb-2">
+                    John Doe
+                </h3>
+                <p class="text-gray-700">
+                    "This community has been a game-changer for my fitness journey!"
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-grow">
+                <img alt="Profile picture of a community member" class="mb-4 rounded-full w-24 h-24 mx-auto"
+                    height="200"
+                    src="https://storage.googleapis.com/a1aa/image/U64TGgF0unSVDIcZ6whBgd67VX2QKSxqfb2_g-gvTvc.jpg"
+                    width="300" />
+                <h3 class="text-2xl font-bold mb-2">
+                    Jane Smith
+                </h3>
+                <p class="text-gray-700">
+                    "I've learned so much from the forums and the educational videos."
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg hover-grow">
+                <img alt="Profile picture of a community member" class="mb-4 rounded-full w-24 h-24 mx-auto"
+                    height="200"
+                    src="https://storage.googleapis.com/a1aa/image/U64TGgF0unSVDIcZ6whBgd67VX2QKSxqfb2_g-gvTvc.jpg"
+                    width="300" />
+                <h3 class="text-2xl font-bold mb-2">
+                    Emily Johnson
+                </h3>
+                <p class="text-gray-700">
+                    "The personalized workout plans have helped me achieve my goals."
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>
+                © 2023 Health &amp; Fitness. All rights reserved.
+            </p>
+            <div class="mt-4">
+                <a class="text-gray-400 hover:text-white mx-2" href="#">
+                    <i class="fab fa-facebook-f">
+                    </i>
+                </a>
+                <a class="text-gray-400 hover:text-white mx-2" href="#">
+                    <i class="fab fa-twitter">
+                    </i>
+                </a>
+                <a class="text-gray-400 hover:text-white mx-2" href="#">
+                    <i class="fab fa-instagram">
+                    </i>
+                </a>
+                <a class="text-gray-400 hover:text-white mx-2" href="#">
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function () {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
