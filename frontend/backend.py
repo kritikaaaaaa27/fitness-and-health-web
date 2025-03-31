@@ -87,5 +87,11 @@ def home():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/goals', methods=['GET', 'POST'])
+@login_required
+def goals():
+    return render_template('goals.html')
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

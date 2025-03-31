@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="text-center my-8">
+    <h1 class="text-4xl font-bold">
+        Your Fitness Goals
+    </h1>
+</section>
+<!-- Goal Management Dashboard -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Goal Card -->
+    <div class="bg-white rounded-lg shadow-md p-4">
+        <h2 class="text-xl font-bold mb-2">
+            Weight Loss
+        </h2>
+        <div class="relative pt-1">
+            <div class="flex mb-2 items-center justify-between">
+                <div>
+                    <span
+                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                        50%
+                    </span>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs font-semibold inline-block text-blue-600">
+                        5kg / 10kg
+                    </span>
+                </div>
+            </div>
+            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
+                <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
+                    style="width:50%">
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Edit / Update Goal
+        </button>
+    </div>
+
+    <!-- Repeat Goal Card for other goals -->
+    <div class="bg-white rounded-lg shadow-md p-4">
+        <h2 class="text-xl font-bold mb-2">
+            Muscle Gain
+        </h2>
+        <div class="relative pt-1">
+            <div class="flex mb-2 items-center justify-between">
+                <div>
+                    <span
+                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                        30%
+                    </span>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs font-semibold inline-block text-blue-600">
+                        3kg / 10kg
+                    </span>
+                </div>
+            </div>
+            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
+                <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
+                    style="width:30%">
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Edit / Update Goal
+        </button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md p-4">
+        <h2 class="text-xl font-bold mb-2">
+            Running Distance
+        </h2>
+        <div class="relative pt-1">
+            <div class="flex mb-2 items-center justify-between">
+                <div>
+                    <span
+                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                        70%
+                    </span>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs font-semibold inline-block text-blue-600">
+                        7km / 10km
+                    </span>
+                </div>
+            </div>
+            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
+                <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
+                    style="width:70%">
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Edit / Update Goal
+        </button>
+    </div>
+
+</section>
+<!-- Set a New Goal Form -->
+<section class="bg-white rounded-lg shadow-md p-6 mt-8">
+    <h2 class="text-2xl font-bold mb-4">
+        Set a New Goal
+    </h2>
+    <form>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium" for="goal-type">
+                    Goal Type
+                </label>
+                <select
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+                    id="goal-type">
+                    <option>
+                        Weight Loss
+                    </option>
+                    <option>
+                        Muscle Gain
+                    </option>
+                    <option>
+                        Running
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium" for="start-value">
+                    Start Value
+                </label>
+                <input
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+                    id="start-value" type="number" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium" for="target-value">
+                    Target Value
+                </label>
+                <input
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+                    id="target-value" type="number" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium" for="target-date">
+                    Target Date
+                </label>
+                <input
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+                    id="target-date" type="date" />
+            </div>
+            <div class="md:col-span-2">
+                <label class="block text-sm font-medium" for="motivation-note">
+                    Motivation Note (optional)
+                </label>
+                <textarea
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+                    id="motivation-note" rows="3"></textarea>
+            </div>
+        </div>
+        <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" type="submit">
+            Save Goal
+        </button>
+    </form>
+</section>
+
+<!-- Goal History & Achievements Section -->
+<section class="mt-8">
+    <h2 class="text-2xl font-bold mb-4">
+        Goal History &amp; Achievements
+    </h2>
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h3 class="text-xl font-bold mb-2">
+            Past Goals
+        </h3>
+        <ul class="list-disc list-inside">
+            <li>
+                Weight Loss: 5kg / 5kg - Completed on 2023-01-15
+            </li>
+            <li>
+                Muscle Gain: 2kg / 2kg - Completed on 2023-02-20
+            </li>
+            <li>
+                Running Distance: 10km / 10km - Completed on 2023-03-10
+            </li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
