@@ -92,6 +92,11 @@ def dashboard():
 def goals():
     return render_template('goals.html')
 
+@app.route('/video', methods=['GET', 'POST'])
+@login_required
+def video():
+    return render_template('video.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

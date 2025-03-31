@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+    <!-- Video Categories -->
+    <section class="container mx-auto mt-8">
+        <div class="grid grid-cols-2 gap-4 md:flex md:justify-center md:space-x-4">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Workouts
+            </button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Nutrition
+            </button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Mental Health
+            </button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Lifestyle &amp; Motivation
+            </button>
+        </div>
+    </section>
+    <!-- Video Grid Layout -->
+    <section class="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Video Card -->
+        <div class="bg-white  rounded-lg shadow-md overflow-hidden m-2">
+            <div class="relative">
+                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="" class="w-full h-48" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="YouTube video player">
+                </iframe>
+            </div>
+            <div class="p-4">
+                <h2 class="text-xl font-bold">
+                    Full-Body Workout
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    A comprehensive full-body workout to get you in shape.
+                </p>
+                <div class="flex justify-between items-center mt-2">
+                    <span class="text-gray-600 dark:text-gray-400">
+                        Duration: 20 mins
+                    </span>
+                    <span class="text-gray-600 dark:text-gray-400">
+                        Views: 1.2k
+                    </span>
+                </div>
+                <div class="flex justify-between items-center mt-2">
+                    <button class="text-blue-500 hover:text-blue-600">
+                        <i class="fas fa-thumbs-up">
+                        </i>
+                    </button>
+                    <button class="text-blue-500 hover:text-blue-600">
+                        <i class="fas fa-save">
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat Video Card for other videos -->
+        <div class="bg-white  rounded-lg shadow-md overflow-hidden m-2">
+            <div class="relative">
+                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="" class="w-full h-48" src="https://www.youtube.com/embed/2Vv-BfVoq4g"
+                    title="YouTube video player">
+                </iframe>
+            </div>
+            <div class="p-4">
+                <h2 class="text-xl font-bold">
+                    Healthy Eating Tips
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Learn how to eat healthy and stay fit.
+                </p>
+                <div class="flex justify-between items-center mt-2">
+                    <span class="text-gray-600 dark:text-gray-400">
+                        Duration: 15 mins
+                    </span>
+                    <span class="text-gray-600 dark:text-gray-400">
+                        Views: 900
+                    </span>
+                </div>
+                <div class="flex justify-between items-center mt-2">
+                    <button class="text-blue-500 hover:text-blue-600">
+                        <i class="fas fa-thumbs-up">
+                        </i>
+                    </button>
+                    <button class="text-blue-500 hover:text-blue-600">
+                        <i class="fas fa-save">
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white  rounded-lg shadow-md overflow-hidden m-2">
+            <div class="relative">
+                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="" class="w-full h-48" src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
+                    title="YouTube video player">
+                </iframe>
+            </div>
+            <div class="p-4">
+                <h2 class="text-xl font-bold">
+                    Mindfulness Meditation
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    A guided meditation session for mindfulness.
+                </p>
+                <div class="flex justify-between items-center mt-2">
+                    <span class="text-gray-600 dark:text-gray-400">
+                        Duration: 10 mins
+                    </span>
+                    <span class="text-gray-600 dark:text-gray-400">
+                        Views: 1.5k
+                    </span>
+                </div>
+                <div class="flex justify-between items-center mt-2">
+                    <button class="text-blue-500 hover:text-blue-600">
+                        <i class="fas fa-thumbs-up">
+                        </i>
+                    </button>
+                    <button class="text-blue-500 hover:text-blue-600">
+                        <i class="fas fa-save">
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white  rounded-lg shadow-md overflow-hidden m-2">
+            <div class="relative">
+                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="" class="w-full h-48" src="https://www.youtube.com/embed/5qap5aO4i9A"
+                    title="YouTube video player">
+                </iframe>
+            </div>
+            <div class="p-4">
+                <h2 class="text-xl font-bold">
+                    Productivity Hacks
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Tips to boost your productivity and stay motivated.
+                </p>
+                <div class="flex justify-between items-center mt-2">
+                    <span class="text-gray-600 dark:text-gray-400">
+                        Duration: 12 mins
+                    </span>
+                    <span class="text-gray-600 dark:text-gray-400">
+                        Views: 800
+                    </span>
+                </div>
+                <div class="flex justify-between items-center mt-2">
+                    <button class="text-blue-500 hover:text-blue-600">
+                        <i class="fas fa-thumbs-up">
+                        </i>
+                    </button>
+                    <button class="text-blue-500 hover:text-blue-600">
+                        <i class="fas fa-save">
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Videos Section -->
+    <section class="container mx-auto mt-8">
+        <h2 class="text-2xl font-bold mb-4">
+            Featured Videos
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Featured Video Card -->
+            <div class="bg-white  rounded-lg shadow-md overflow-hidden m-2">
+                <div class="relative">
+                    <iframe
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="" class="w-full h-48" src="https://www.youtube.com/embed/6Dh-RL__uN4"
+                        title="YouTube video player">
+                    </iframe>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-bold">
+                        Yoga for Beginners
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        A beginner-friendly yoga session to get you started.
+                    </p>
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-gray-600 dark:text-gray-400">
+                            Duration: 25 mins
+                        </span>
+                        <span class="text-gray-600 dark:text-gray-400">
+                            Views: 2.3k
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center mt-2">
+                        <button class="text-blue-500 hover:text-blue-600">
+                            <i class="fas fa-thumbs-up">
+                            </i>
+                        </button>
+                        <button class="text-blue-500 hover:text-blue-600">
+                            <i class="fas fa-save">
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat Featured Video Card for other videos -->
+            <div class="bg-white  rounded-lg shadow-md overflow-hidden m-2">
+                <div class="relative">
+                    <iframe
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="" class="w-full h-48" src="https://www.youtube.com/embed/6Dh-RL__uN4"
+                        title="YouTube video player">
+                    </iframe>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-bold">
+                        Healthy Meal Prep
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Learn how to prepare healthy meals for the week.
+                    </p>
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-gray-600 dark:text-gray-400">
+                            Duration: 18 mins
+                        </span>
+                        <span class="text-gray-600 dark:text-gray-400">
+                            Views: 1.1k
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center mt-2">
+                        <button class="text-blue-500 hover:text-blue-600">
+                            <i class="fas fa-thumbs-up">
+                            </i>
+                        </button>
+                        <button class="text-blue-500 hover:text-blue-600">
+                            <i class="fas fa-save">
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white  rounded-lg shadow-md overflow-hidden m-2">
+                <div class="relative">
+                    <iframe
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="" class="w-full h-48" src="https://www.youtube.com/embed/6Dh-RL__uN4"
+                        title="YouTube video player">
+                    </iframe>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-bold">
+                        Stress Management
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Techniques to manage stress and improve mental health.
+                    </p>
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-gray-600 dark:text-gray-400">
+                            Duration: 22 mins
+                        </span>
+                        <span class="text-gray-600 dark:text-gray-400">
+                            Views: 1.8k
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center mt-2">
+                        <button class="text-blue-500 hover:text-blue-600">
+                            <i class="fas fa-thumbs-up">
+                            </i>
+                        </button>
+                        <button class="text-blue-500 hover:text-blue-600">
+                            <i class="fas fa-save">
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Webinar Section -->
+    <section class="container mx-auto mt-8">
+        <h2 class="text-2xl font-bold mb-4">
+            Upcoming Webinars
+        </h2>
+        <div class="bg-white  rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold mb-2">
+                Join Our Live Q&amp;A Sessions
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400">
+                Interact with fitness experts and get your questions answered in real-time.
+            </p>
+            <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Join Now
+            </button>
+        </div>
+    </section>
+
+    {% endblock %}
