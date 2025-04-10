@@ -22,6 +22,20 @@ def init_db():
             );
         ''')
 
+        conn.execute('''
+        CREATE TABLE IF NOT EXISTS goals (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            type TEXT NOT NULL,
+            start_value REAL NOT NULL,
+            target_value REAL NOT NULL,
+            current_value REAL DEFAULT 0,
+            target_date TEXT,
+            note TEXT,
+            completed INTEGER DEFAULT 0,
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+        ''')
+
     conn.close()
 
 if __name__ == "__main__":

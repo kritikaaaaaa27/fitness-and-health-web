@@ -87,10 +87,54 @@ def home():
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route('/goals', methods=['GET', 'POST'])
+@app.route('/goals')
 @login_required
-def goals():
-    return render_template('goals.html')
+def index():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM goals WHERE completed=0')
+    active_goals = cur.fetchall()
+
+    cur.execute('SELECT * FROM goals WHERE completed=1 ORDER BY target_date DESC')
+    completed_goals = cur.fetchall()
+    conn.close()
+
+    return render_template('goals.html', active_goals=active_goals, completed_goals=completed_goals)
+
+@app.route('/add', methods=['POST'])
+@login_required
+def add_goal():
+    goal_type = request.form['goal_type']
+    start_value = float(request.form['start_value'])
+    target_value = float(request.form['target_value'])
+    target_date = request.form['target_date']
+    note = request.form.get('motivation_note', '')
+
+    conn = get_db_connection()
+    conn.execute('''
+        INSERT INTO goals (type, start_value, target_value, target_date, note, current_value)
+        VALUES (?, ?, ?, ?, ?, ?)
+    ''', (goal_type, start_value, target_value, target_date, note, start_value))
+    conn.commit()
+    conn.close()
+
+    return redirect('/goals')
+
+@app.route('/update/<int:goal_id>', methods=['POST'])
+@login_required
+def update_goal(goal_id):
+    current_value = float(request.form['current_value'])
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT target_value FROM goals WHERE id = ?', (goal_id,))
+    target_value = cur.fetchone()['target_value']
+    completed = 1 if current_value >= target_value else 0
+    cur.execute('UPDATE goals SET current_value = ?, completed = ? WHERE id = ?',
+                (current_value, completed, goal_id))
+    conn.commit()
+    conn.close()
+    return redirect('/goals')
+
 
 @app.route('/video', methods=['GET', 'POST'])
 @login_required
