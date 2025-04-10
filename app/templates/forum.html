@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main class="container mx-auto p-4">
+    <div class="flex flex-col md:flex-row md:space-x-4">
+        <!-- Forum Categories -->
+        <aside class="w-full md:w-1/4 bg-white p-4 rounded-lg shadow-md mb-4 md:mb-0">
+            <h2 class="text-xl font-bold mb-4">Categories</h2>
+            <ul class="space-y-2">
+                {% for cat in ["General Discussion", "Nutrition", "Workouts", "Mental Health", "Supplements"] %}
+                <li>
+                    <a class="block p-2 bg-gray-200 rounded hover:bg-gray-300 {{ 'bg-green-200' if selected_category == cat else '' }}" href="/forum?category={{ cat }}">
+                        {{ cat }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>
+
+        <!-- Forum Threads -->
+        <section class="w-full md:w-3/4 bg-white p-4 rounded-lg shadow-md">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Latest Discussions</h2>
+                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="document.getElementById('newMessageModal').classList.remove('hidden')">
+                    New Message
+                </button>
+            </div>
+            <div class="space-y-4">
+                {% for thread in threads %}
+                <div class="p-4 bg-gray-100 rounded-lg shadow">
+                    <div class="flex items-center mb-2">
+                        <img alt="User profile picture" class="w-12 h-12 rounded-full mr-4" height="50" src="{{ thread.avatar }}" width="50" />
+                        <div>
+                            <h3 class="text-lg font-bold">{{ thread.title }}</h3>
+                            <p class="text-sm text-gray-600">Posted by {{ thread.username }}</p>
+                            <span class="text-gray-600 text-sm">{{ thread.created_at }}</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">{{ thread.message }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- New Message Modal -->
+<div class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden" id="newMessageModal">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+        <h2 class="text-xl font-bold mb-4">Create New Message</h2>
+        <form method="POST" action="/forum/new">
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="title">Title</label>
+                <input class="w-full p-2 border border-gray-300 rounded" id="title" name="title" type="text" required />
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="category">Category</label>
+                <select class="w-full p-2 border border-gray-300 rounded" id="category" name="category" required>
+                    <option>General Discussion</option>
+                    <option>Nutrition</option>
+                    <option>Workouts</option>
+                    <option>Mental Health</option>
+                    <option>Supplements</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="message">Message</label>
+                <textarea class="w-full p-2 border border-gray-300 rounded" id="message" name="message" rows="4" required></textarea>
+            </div>
+            <div class="flex justify-end">
+                <button class="bg-gray-500 text-white px-4 py-2 rounded mr-2" type="button" onclick="document.getElementById('newMessageModal').classList.add('hidden')">Cancel</button>
+                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" type="submit">Post Message</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
