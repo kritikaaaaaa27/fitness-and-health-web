@@ -57,6 +57,29 @@ def init_db():
                 ("Productivity Hacks", "Tips to boost your productivity and stay motivated.", "Lifestyle & Motivation", "5qap5aO4i9A")
             ])
 
+        conn.executescript('''
+                CREATE TABLE IF NOT EXISTS forum_threads (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                username TEXT NOT NULL,
+                category TEXT NOT NULL,
+                message TEXT NOT NULL,
+                replies INTEGER DEFAULT 0,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP
+            );
+        ''')
+
+        if conn.execute('SELECT COUNT(*) FROM forum_threads').fetchone()[0] == 0:
+            conn.executemany('''
+                INSERT INTO forum_threads (title, username, category, message, replies) VALUES (?, ?, ?, ?, ?)
+            ''', [
+                ("How to start a keto diet?", "John Doe", "Nutrition", "I've been hearing a lot about the keto diet and I'm interested in starting it. Can anyone provide some tips on how to get started?", 5),
+                ("Best exercises for building muscle?", "Jane Smith", "Workouts", "I'm looking to build muscle and would like to know what exercises are most effective. Any recommendations?", 8),
+                ("Healthy meal prep ideas?", "Mike Johnson", "Nutrition", "I'm trying to eat healthier and would like some meal prep ideas that are both nutritious and easy to make.", 3),
+                ("Managing stress through exercise?", "Sarah Lee", "Mental Health", "I've been feeling very stressed lately and heard that exercise can help. What types of exercise are best for stress relief?", 6),
+                ("Supplements for joint health?", "Emily Davis", "Supplements", "I'm experiencing joint pain and am considering taking supplements. What are the best supplements for joint health?", 4),
+            ])
+
     conn.close()
 
 if __name__ == "__main__":

@@ -7,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import json
 import uuid
+import hashlib
 
 from database_connection import init_db, get_db_connection
 
@@ -136,6 +137,7 @@ def update_goal(goal_id):
     return redirect('/goals')
 
 @app.route('/videos')
+@login_required
 def videos():
     category = request.args.get('category')
     conn = get_db_connection()
@@ -146,6 +148,44 @@ def videos():
     conn.close()
     return render_template('videos.html', videos=rows, selected_category=category)
 
+def get_user_avatar(name):
+    h = hashlib.md5(name.encode()).hexdigest()
+    return f"https://robohash.org/{h}?set=set5"
+
+@app.route('/forum')
+def forum():
+    category = request.args.get('category')
+    conn = get_db_connection()
+    if category:
+        rows = conn.execute('SELECT * FROM forum_threads WHERE category = ? ORDER BY created_at DESC', (category,)).fetchall()
+    else:
+        rows = conn.execute('SELECT * FROM forum_threads ORDER BY created_at DESC').fetchall()
+    conn.close()
+
+    threads = []
+    for row in rows:
+        thread = dict(row)
+        thread['avatar'] = get_user_avatar(thread['username'])
+        threads.append(thread)
+
+    return render_template('forum.html', threads=threads, selected_category=category)
+
+@app.route('/forum/new', methods=['POST'])
+def post_message():
+    title = request.form['title']
+    category = request.form['category']
+    message = request.form['message']
+
+    conn = get_db_connection()
+    user = conn.execute('SELECT name FROM users LIMIT 1').fetchone()
+    username = user['name'] if user else 'Guest'
+
+    conn.execute('INSERT INTO forum_threads (title, username, category, message) VALUES (?, ?, ?, ?)',
+                 (title, username, category, message))
+    conn.commit()
+    conn.close()
+
+    return redirect('/forum')
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
