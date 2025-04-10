@@ -79,14 +79,30 @@ def logout():
     logout_user()
     return render_template('index.html')
 
+def get_user_avatar(name):
+    h = hashlib.md5(name.encode()).hexdigest()
+    return f"https://robohash.org/{h}?set=set5"
+
 @app.route("/")
 def home():
     return render_template("index.html")
 
-@app.route('/dashboard', methods=['GET', 'POST'])
-@login_required 
+@app.route('/dashboard')
+@login_required
 def dashboard():
-    return render_template('dashboard.html')
+    conn = get_db_connection()
+    goals = conn.execute('SELECT * FROM goals WHERE completed = 0 ORDER BY created_at DESC').fetchall()
+    videos = conn.execute('SELECT * FROM videos ORDER BY id DESC LIMIT 3').fetchall()
+    threads = conn.execute('SELECT * FROM forum_threads ORDER BY created_at DESC LIMIT 3').fetchall()
+    conn.close()
+
+    threads = [dict(t) for t in threads]
+    for t in threads:
+        t['avatar'] = get_user_avatar(t['username'])
+
+        print(t['avatar'])
+
+    return render_template('dashboard.html', goals=goals, videos=videos, threads=threads)
 
 @app.route('/goals')
 @login_required
@@ -148,11 +164,8 @@ def videos():
     conn.close()
     return render_template('videos.html', videos=rows, selected_category=category)
 
-def get_user_avatar(name):
-    h = hashlib.md5(name.encode()).hexdigest()
-    return f"https://robohash.org/{h}?set=set5"
-
 @app.route('/forum')
+@login_required
 def forum():
     category = request.args.get('category')
     conn = get_db_connection()
@@ -171,6 +184,7 @@ def forum():
     return render_template('forum.html', threads=threads, selected_category=category)
 
 @app.route('/forum/new', methods=['POST'])
+@login_required
 def post_message():
     title = request.form['title']
     category = request.form['category']
