@@ -36,6 +36,27 @@ def init_db():
         )
         ''')
 
+        conn.executescript('''
+            CREATE TABLE IF NOT EXISTS videos (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                description TEXT,
+                category TEXT NOT NULL,
+                youtube_id TEXT NOT NULL
+            );
+        ''')
+
+        if conn.execute('SELECT COUNT(*) FROM videos').fetchone()[0] == 0:
+            conn.executemany('''
+                INSERT INTO videos (title, description, category, youtube_id)
+                VALUES (?, ?, ?, ?)
+            ''', [
+                ("Full-Body Workout", "A comprehensive full-body workout to get you in shape.", "Workouts", "dQw4w9WgXcQ"),
+                ("Healthy Eating Tips", "Learn how to eat healthy and stay fit.", "Nutrition", "2Vv-BfVoq4g"),
+                ("Mindfulness Meditation", "A guided meditation session for mindfulness.", "Mental Health", "3JZ_D3ELwOQ"),
+                ("Productivity Hacks", "Tips to boost your productivity and stay motivated.", "Lifestyle & Motivation", "5qap5aO4i9A")
+            ])
+
     conn.close()
 
 if __name__ == "__main__":

@@ -135,11 +135,16 @@ def update_goal(goal_id):
     conn.close()
     return redirect('/goals')
 
-
-@app.route('/video', methods=['GET', 'POST'])
-@login_required
-def video():
-    return render_template('video.html')
+@app.route('/videos')
+def videos():
+    category = request.args.get('category')
+    conn = get_db_connection()
+    if category:
+        rows = conn.execute('SELECT * FROM videos WHERE category = ?', (category,)).fetchall()
+    else:
+        rows = conn.execute('SELECT * FROM videos').fetchall()
+    conn.close()
+    return render_template('videos.html', videos=rows, selected_category=category)
 
 
 if __name__ == "__main__":

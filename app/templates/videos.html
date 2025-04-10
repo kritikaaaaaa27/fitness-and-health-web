@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Video Categories -->
+<section class="container mx-auto mt-8">
+    <div class="grid grid-cols-2 gap-4 md:flex md:justify-center md:space-x-4">
+        {% for cat in ["Workouts", "Nutrition", "Mental Health", "Lifestyle & Motivation"] %}
+        <a href="/videos?category={{ cat }}">
+            <button
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 {{ 'opacity-75' if selected_category == cat else '' }}">
+                {{ cat }}
+            </button>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Video Grid Layout -->
+<section class="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {% for video in videos %}
+    <div class="bg-white rounded-lg shadow-md overflow-hidden m-2">
+        <div class="relative">
+            <iframe allowfullscreen class="w-full h-48" src="https://www.youtube.com/embed/{{ video.youtube_id }}"
+                title="YouTube video player"></iframe>
+        </div>
+        <div class="p-4">
+            <h2 class="text-xl font-bold">{{ video.title }}</h2>
+            <p class="text-gray-600 dark:text-gray-400">{{ video.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- Live Webinar Section -->
+<section class="container mx-auto mt-8">
+    <h2 class="text-2xl font-bold mb-4">
+        Upcoming Webinars
+    </h2>
+    <div class="bg-white  rounded-lg shadow-md p-6">
+        <h3 class="text-xl font-bold mb-2">
+            Join Our Live Q&amp;A Sessions
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400">
+            Interact with fitness experts and get your questions answered in real-time.
+        </p>
+        <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            Join Now
+        </button>
+    </div>
+</section>
+
+{% endblock %}
