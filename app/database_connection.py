@@ -1,6 +1,5 @@
 import sqlite3
 import os
-import json
 
 def get_db_connection():
     db_file = os.path.join(os.path.dirname(__file__), 'instance', 'db.sqlite3')

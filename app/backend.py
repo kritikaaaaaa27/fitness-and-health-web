@@ -1,12 +1,7 @@
-from flask import Flask, request, render_template, jsonify, redirect, send_file, url_for, flash
-import requests
+from flask import Flask, request, render_template, redirect, url_for, flash
 from dotenv import load_dotenv
-import os
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-import sqlite3
-import json
-import uuid
 import hashlib
 
 from database_connection import init_db, get_db_connection
