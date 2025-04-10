@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="mb-8" id="goal-tracker">
+    <h2 class="text-3xl font-bold mb-4 text-white">Goal Tracker Dashboard</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for goal in goals %}
+        <div class="bg-gray-800 p-4 rounded-lg shadow text-white">
+            <h3 class="text-xl font-semibold mb-2">{{ goal.type }}</h3>
+            <div class="flex justify-between text-sm mb-1">
+                <span>{{ ((goal.current_value / goal.target_value) * 100) | round(0) }}%</span>
+                <span>{{ goal.current_value }} / {{ goal.target_value }}</span>
+            </div>
+            <div class="h-2 bg-gray-600 rounded overflow-hidden">
+                <div class="bg-green-400 h-2" style="width:{{ ((goal.current_value / goal.target_value) * 100) | round(0) }}%"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section class="mb-8" id="educational-videos">
+    <h2 class="text-3xl font-bold mb-4 text-white">Educational Videos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for video in videos %}
+        <div class="bg-gray-800 p-4 rounded-lg shadow text-white">
+            <iframe class="w-full h-48 rounded mb-2" src="https://www.youtube.com/embed/{{ video.youtube_id }}" allowfullscreen></iframe>
+            <h3 class="text-xl font-semibold mb-2">{{ video.title }}</h3>
+            <p class="text-gray-300">{{ video.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section class="mb-8" id="community-forums">
+    <h2 class="text-3xl font-bold mb-4 text-white">Community Forums</h2>
+    <div class="space-y-4">
+        {% for thread in threads %}
+        <div class="bg-gray-800 p-4 rounded-lg shadow text-white flex items-start">
+            <img src="{{ thread.avatar }}" class="w-10 h-10 rounded-full mr-4" />
+            <div>
+                <h3 class="text-lg font-bold">{{ thread.title }}</h3>
+                <p class="text-sm text-gray-400">Posted by {{ thread.username }} on {{ thread.created_at }}</p>
+                <p class="text-gray-200 mt-1">{{ thread.message[:150] }}...</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
